@@ -9,7 +9,7 @@ function getHelloWorldMessage() {
         return;
     }
 
-    fetch(`http://localhost:5000/hello?language=${language}`)
+    fetch(`http://localhost:1000/hello?language=${language}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Language not supported');
