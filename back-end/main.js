@@ -5,11 +5,9 @@ const path = require("path");
 
 const app = express();
 
-// Middleware
+// Middleware to serve static files from the front-end/public folder
 app.use(cors());
-
-// Serve static files from the 'public' folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "front-end", "public")));
 
 // Load language data
 const languageFilePath = path.join(__dirname, "languages.json");
@@ -19,36 +17,32 @@ if (!fs.existsSync(languageFilePath)) {
 }
 const languageData = JSON.parse(fs.readFileSync(languageFilePath, "utf-8"));
 
-// API endpoint
+// Endpoint to handle different languages
 app.get("/hello", (req, res) => {
   const { language } = req.query;
 
   if (!language) {
     return res.status(400).json({
-      error_message: "The 'language' query parameter is required",
+      error_message: "The 'language' query parameter is required"
     });
   }
 
   if (!languageData[language]) {
     return res.status(400).json({
-      error_message: "The requested language is not supported",
+      error_message: "The requested language is not supported"
     });
   }
 
   res.status(200).json(languageData[language]);
 });
 
+// Catch-all route to serve the main.html file
 app.get("*", (req, res) => {
-  const mainHtmlPath = path.join(__dirname, "public", "front-end", "main.html");
-  if (!fs.existsSync(mainHtmlPath)) {
-    console.error(`Error: main.html file not found at ${mainHtmlPath}`);
-    return res.status(404).send("main.html not found.");
-  }
-  res.sendFile(mainHtmlPath);
+  res.sendFile(path.join(__dirname, "front-end", "public", "main.html"));
 });
 
-// Start server
+// Set the port for the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
