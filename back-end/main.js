@@ -6,7 +6,10 @@ const path = require("path");
 const app = express();
 
 // Middleware to serve static files from the front-end/public folder
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
+
 app.use(express.static(path.join(__dirname, "..", "front-end", "public")));
 
 // Load language data
