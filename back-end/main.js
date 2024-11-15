@@ -1,15 +1,11 @@
 const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
 
 // Middleware to allow cross-origin requests (CORS)
 app.use(cors());
-
-// Serve static files from the "public" folder of the front-end
-app.use(express.static(path.join(__dirname, "front-end", "public")));
 
 // Load language data from "languages.json"
 const languageFilePath = path.join(__dirname, "languages.json");
@@ -39,10 +35,6 @@ app.get("/hello", (req, res) => {
     res.status(200).json(languageData[language]);
 });
 
-// Catch-all route to serve the main.html file
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "front-end", "public", "index.html"));
-});
 
 // Set the port for the server
 const PORT = process.env.PORT || 5000;
