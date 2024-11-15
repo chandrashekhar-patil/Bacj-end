@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware to serve static files from the front-end/public folder
 app.use(cors());
-app.use(express.static(path.join(__dirname, "front-end", "public")));
+app.use(express.static(path.join(__dirname, "..", "front-end", "public")));
 
 // Load language data
 const languageFilePath = path.join(__dirname, "languages.json");
@@ -36,9 +36,9 @@ app.get("/hello", (req, res) => {
   res.status(200).json(languageData[language]);
 });
 
-// Catch-all route to serve the main.html file
+// Catch-all route to serve the main.html file from the front-end/public folder
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "front-end", "public", "main.html"));
+  res.sendFile(path.join(__dirname, "..", "front-end", "public", "main.html"));
 });
 
 // Set the port for the server
