@@ -1,4 +1,6 @@
 # Language-Selection ⭐
+The application can be accessed at the following URLs:
+- **Website**: **[https://back-end-2-yrsy.onrender.com/](https://back-end-2-yrsy.onrender.com/)**
 
 ## Description
 **Language-Selection** is a full-stack web application built with **Node.js**, **Express.js**, and **static HTML/CSS/JS**. The project includes:
@@ -30,13 +32,13 @@ This project demonstrates a simple yet effective full-stack setup.
 ### **GET /hello**
 This endpoint returns a greeting message based on the specified language.
 
-#### Request:
-
 #### Query Parameters:
 - `language`: The language of the greeting message (e.g., `English`, `French`, `Hindi`).
 
-#### Example Response:
-```json
+#### Request:
+```http
+GET http://localhost:5000/hello?language=English
+Response:
 {
   "message": {
     "ID": "EN101",
