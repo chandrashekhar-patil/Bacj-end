@@ -9,7 +9,8 @@ function getHelloWorldMessage() {
         return;
     }
 
-    fetch(`http://localhost:5000/hello?language=${language}`)
+    // Updated to use the deployed backend URL
+    fetch(`https://language-section-3.onrender.com/hello?language=${language}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Language not supported');
