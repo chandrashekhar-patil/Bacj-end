@@ -1,6 +1,6 @@
 # Language-Selection ⭐
 The application can be accessed at the following URLs:
-- **Website**: **[https://back-end-2-yrsy.onrender.com/](https://back-end-2-yrsy.onrender.com/)**
+- **Website**: **[https://language-selection-fr-git-ee7c81-chandrashekhar-patils-projects.vercel.app/](https://language-selection-fr-git-ee7c81-chandrashekhar-patils-projects.vercel.app/)**
 
 ## Description
 **Language-Selection** is a full-stack web application built with **Node.js**, **Express.js**, and **static HTML/CSS/JS**. The project includes:
@@ -78,7 +78,7 @@ This section describes how errors are managed in the project and outlines the po
 - **Front-End** is hosted as static files in the `/front-end/public` directory.
 
 The application can be accessed at the following URLs:
-- **Project URL**: **[https://back-end-2-yrsy.onrender.com/](https://back-end-2-yrsy.onrender.com/)**
+- **Project URL**: **[https://language-selection-fr-git-ee7c81-chandrashekhar-patils-projects.vercel.app/](https://language-selection-fr-git-ee7c81-chandrashekhar-patils-projects.vercel.app/)**
 
 ## Postman Collection
 
